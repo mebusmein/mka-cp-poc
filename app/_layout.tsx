@@ -1,9 +1,16 @@
 import '../global.css';
-
 import '../translation';
 
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 
-export default function Layout() {
-  return <Stack />;
+import { SessionProvider } from '@/contexts/AuthContext';
+import { SplashScreenController } from '@/components/app/Splash';
+
+export default function RootLayout() {
+  return (
+    <SessionProvider>
+      <SplashScreenController />
+      <Slot />
+    </SessionProvider>
+  );
 }
